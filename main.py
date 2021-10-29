@@ -1,16 +1,56 @@
-# This is a sample Python script.
+#1. feladat:
+filepath = "valaszok.txt"
+fileobject = open(filepath, "r")
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+#2. feladat:
+count_rows = 0
+for line in fileobject:
+    count_rows += 1
+print("A sorok száma: ", count_rows-1)
+
+#3. feladat:
+jo_mego = fileobject.readline()
+versenyzo_valasz = []
+input_versenyzo = input("Kérem adja meg a versenyző azonítóját: ")
+valasz = ""
+for i in range(count_rows):
+    if(versenyzo_valasz[i][0:5] == input_versenyzo):
+        valasz=versenyzo_valasz[i][6:20]
+        print(valasz)
+    else:
+        print("Ilyen kóddal nem indult versenyző.")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+#4. feladat:
+print("A helyes megoldás: ")
+print(jo_mego)
+jo_valasz = ""
+for i in range(14):
+    if(valasz[i] == jo_mego[i]):
+        jo_valasz = jo_valasz + '+'
+    else:
+        jo_valasz = jo_valasz + ' '
+print(jo_valasz)
+
+#5.feladat
+sorszam_input = input("Kérem adja meg a feladat sorszámát: ")
+try:
+    jo_db = 0
+    sorszam = int(sorszam_input)
+    sorszam_i = sorszam - 1
+    for i in range(count_rows):
+            if(jo_mego[sorszam_i] == versenyzo_valasz[i][sorszam_i+6]):
+                jo_db += 1
+    jo_szazalek = (jo_db / count_rows) * 100
+    print("A válaszra fő, a versenyzők %-a adott helyes választ.", jo_db, jo_szazalek)
+
+except ValueError:
+    print("Hibás sorszám")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print("A versenyzők pontszámának a meghatározása.")
+pontszamok = []
+#for i in range(count_rows):
+ #   pontszamok.append(0)
+
