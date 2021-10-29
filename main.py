@@ -10,14 +10,14 @@ print("A sorok száma: ", count_rows-1)
 
 #3. feladat:
 
-versenyzo_valasz = []
+v_valaszai = []
 jo_mego = fileobject.readline()
 
 input_versenyzo = input("Kérem adja meg a versenyző azonítóját: ")
 valasz = ""
 for i in range(count_rows):
-    if(input_versenyzo == versenyzo_valasz[i][0:5]):
-        valasz=versenyzo_valasz[i][6:20]
+    if(input_versenyzo == v_valaszai[i][0:5]):
+        valasz=v_valaszai[i][6:20]
         print(valasz)
     else:
         print("Ilyen kóddal nem indult versenyző.")
